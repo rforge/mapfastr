@@ -1,0 +1,3 @@
+import("hglm","noia","sfsmisc", "snow", "snowfall")
+
+export("import_data","calc.probs","autosome.genome.scan","MCIBD","MCIBD.chro","MCIBD.genome","FIA.scan","FIA.model","run_NOIA")

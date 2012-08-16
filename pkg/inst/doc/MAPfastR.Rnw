@@ -1,0 +1,16 @@
+% $Id: MAPfastR.Rnw $
+
+%\VignetteIndexEntry{The MAPfastR Package}
+%\VignetteKeywords{MAPfastR}
+%\VignettePackage{MAPfastR}
+
+\documentclass{article}
+
+\usepackage{pdfpages}
+
+\begin{document}
+
+\includepdf[pages={1-15}, fitpaper=true]{mapfastr_120814.pdf}
+
+\end{document}
+
