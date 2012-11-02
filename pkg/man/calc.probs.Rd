@@ -20,14 +20,10 @@ Either the interval, in cM, at which you want the probabilities estimated, or "m
 }
 }
 \details{...
-%%  ~~ If necessary, more details than the description above ~~
+Calculation of genotype and phenotype probabilities is done using triM algorithm implemented in the cnf2freq package. 
 }
 \value{...
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Returns the calculated line origin probabilities to the /dataobject as elements /a and /d. These are lists divided by chromosome.
 }
 \references{
 L. Crooks, C. Nettelblad, and O. Carlborg, "An improved method for estimating chromosomal line origin in QTL analysis of crosses between outbred lines," G3: Genes Genomes Genetics, iss. 1: 57-64, 2011.}

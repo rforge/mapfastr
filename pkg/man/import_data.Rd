@@ -60,15 +60,11 @@ parameter specifying whether cnf2freq or Cri-Map format has been used
 parameter specifying directory with Cri-Map data
 }
 }
-\details{...
-
+\details{
+The function reads a set of input files, in either triM or crimap format, and stores the data in a MAPfastR data object. Downstream analyses will extend the object with their results, while leaving the input data intact.
 }
 \value{...
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A list, constituting a MAPfastR data object, containing data from the input files as well as the specified values for the input parameters.
 }
 \references{
 Green P, Fallsand K, Crooks S: CRI-MAP Documentation version 2.4. Washington University School of Medicine St. Louis, MO. (1990).
@@ -78,14 +74,10 @@ Nettelblad, C., Holmgren, S. & Crooks, L. cnF2freq: Efficient Determination of G
 \author{
 Mats Pettersson
 }
-\note{...
-%%  ~~further notes~~
-}
-
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{...
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{calc.probs}}
 }
 \examples{
 ## ---- See Package Vignettes ----

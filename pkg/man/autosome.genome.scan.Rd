@@ -25,37 +25,31 @@ vector of factors characterising the trait (if any)
   \item{covariates}{
 vector of covariate names
 }
-  \item{bk.QTL}{...
-%%     ~~Describe \code{bk.QTL} here~~
+  \item{bk.QTL}{
+Pre identified QTL to be used as covariate. Default = NULL
 }
-  \item{error}{...
-%%     ~~Describe \code{error} here~~
+  \item{error}{
+Distribution of the residuals in the model. Normal or Binomial
 }
 }
 \details{...
-%%  ~~ If necessary, more details than the description above ~~
+Performs a QTL scan, using the Haley Knott regression on the line origin in /data. F values, the test statistic from the Haley Knott regression, for each  interval is generated.
 }
 \value{...
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+List containing: max.F.value, position.max.F, estimated.effects.max.F, variables.in.starting.model, all.F.values, chrom.boundaries, results.by.chromosome
 }
 \references{
 L. Crooks, C. Nettelblad, and O. Carlborg, "An improved method for estimating chromosomal line origin in QTL analysis of crosses between outbred lines," G3: Genes Genomes Genetics, iss. 1: 57-64, 2011.
 }
 \author{
-L. Crooks
+Lucy Crooks
 }
-\note{...
-%%  ~~further notes~~
-}
+
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{...
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{calc.probs}}
 }
 \examples{
 ##---- See Package Vignettes ----

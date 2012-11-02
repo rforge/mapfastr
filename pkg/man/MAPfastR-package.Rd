@@ -12,8 +12,8 @@ MAPfastR is a fast and comprehensive software package for analyzing QTL data fro
 \tabular{ll}{
 Package: \tab MAPfastR\cr
 Type: \tab Package\cr
-Version: \tab 1.0-1\cr
-Date: \tab 2012-10-14\cr
+Version: \tab 1.0-2\cr
+Date: \tab 2012-11-01\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 Depends: \tab hglm, noia, cnf2freq, cnf2freqibdtracer, sfsmisc, snow, snowfall\cr
@@ -33,10 +33,12 @@ O Carlborg and L Andersson. The use of randomization testing for detection of mu
 
 L Crooks, C Nettelblad, and O Carlborg. An improved method for estimating chromosomal line origin in QTL analysis of crosses between outbred lines. G3: Genes Genomes Genetics, (1: 57-64), 2011. \cr
 
-RM Nelson, C Nettelblad, L Crooks, ME Pettersson, F Besnier, X Shen, J Alvarez Castro, L Ronnegard, W Ek, Z Sheng, M Kierczak, S Holmgren, and O Carlborg. MapfastR: QTL mapping in outbred line crosses. Bioinformatics, 2012.\cr
+RM Nelson, C Nettelblad, ME Pettersson, X Shen, L Crooks, F Besnier, J Alvarez Castro, L Ronnegard, W Ek, Z Sheng, M Kierczak, S Holmgren, and O Carlborg. MAPfastR: QTL mapping in outbred line crosses. Bioinformatics, 2012.\cr
 
 C Nettelblad, S Holmgren, L Crooks, and O Carlborg. cnf2freq: Efficient determination of genotype and haplotype probabilities in outbred populations using markov models. In Bioinformatics and Computational Biology, number 5462 in Lecture notes in Bioinformatics. Springer, 2009.\cr
 
-L Ronnegard, F Besnier, and O Carlborg. An improved method for qtl detection and identification of within-line segregation in F2 intercross designs. Genetics, (178), 2008.\cr
+L Ronnegard, F Besnier, and O Carlborg. An improved method for QTL detection and identification of within-line segregation in F2 intercross designs. Genetics, (178), 2008.\cr
+
+X Shen, L Ronnegard and O Carlborg. How to deal with genotype uncertainty in variance component QTL analyses. Genetics Research, Cambridge, (93), 2011.\cr
 }
 \keyword{ MAPfastR, outbred, QTL, MCIBD, FIA, NOIA }
