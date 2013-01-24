@@ -185,6 +185,8 @@ MCIBD <-
 		else {
 			filename <- paste(paste(p[1], p[2], sep = "_x_"), exname, sep = "")	
 		}
+		indibd <- unique(unlist(strsplit(cbind(row.names(trim.output[[1]])),split='[.]'))[seq(1,nrow(trim.output[[1]])*2,2)])
+		write.table(cbind(indibd), "indibd.txt", col.names = FALSE, row.names = FALSE, quote = FALSE, sep = "\t")
 		write.table(meanPi, filename, col.names = FALSE, row.names = FALSE, quote = FALSE, sep = "\t")
 		if (!epistasis) {
 			cat(paste(type, "matrix of dimension", nf2, "x", dim2, "at locus", p, "is accomplished, where", MIsize, "imputes were sampled.", sep = " "), "\n")
@@ -293,6 +295,8 @@ MCIBD <-
 		else {
 			filename <- paste(paste(p[1], p[2], sep = "_x_"), exname, sep = "")	
 		}
+		indibd <- unique(unlist(strsplit(cbind(row.names(trim.output[[1]])),split='[.]'))[seq(1,nrow(trim.output[[1]])*2,2)])
+		write.table(cbind(indibd), "indibd.txt", col.names = FALSE, row.names = FALSE, quote = FALSE, sep = "\t")
 		write.table(meanPi, filename, col.names = FALSE, row.names = FALSE, quote = FALSE, sep = "\t")
 		if (!epistasis) {
 			cat(paste(type, "matrix of dimension", nf2, "x", dim2, "at locus", p, "is accomplished, where", MIsize*n.cpus, "imputes were sampled.", sep = " "), "\n")
@@ -320,7 +324,7 @@ MCIBD.chro <-
 	## --------------------------------------------- ##
 	##       Monte Carlo IBD Matrix Calculator       ##
 	##      cnF2freq has to be run before this.      ##
-	##      Xia.Shen@slu.uu.se ---2012-10-14---      ##
+	##        Xia.Shen@slu.se ---2012-10-14---       ##
 	## --------------------------------------------- ##
 	
 	## !! PACKAGE REQUIREMENTS: sfsmisc, snow (for HPC), snowfall (for HPC)
@@ -624,6 +628,9 @@ MCIBD.genome <-
 	
 	if (is.null(chr)) chr <- 1:length(trim.output)
 	
+	indibd <- unique(unlist(strsplit(cbind(row.names(trim.output[[1]])),split='[.]'))[seq(1,nrow(trim.output[[1]])*2,2)])
+	save(indibd, file = "indibd.RData")
+	
 	for (k in chr) {
 		cat('Chromosome', k, '\n')
 		cat('\n')
@@ -791,9 +798,20 @@ FIA.scan <-
 				print.score = TRUE, pdf.figure = TRUE, figure.file = "FIA_scan.pdf") {
 	
 	## load data ...
-	
-	y <- data$pheno[data$pheno$generation==3,phenotype]
-	if (!is.null(fixed.effects)) X <- model.matrix(~data$pheno[data$pheno$generation==3,fixed.effects]) else X <- matrix(1, length(y), 1)
+	load('indibd.RData')
+	indphe <- row.names(data$pheno)
+	indibd <- indibd[indibd %in% indphe]
+	#indphe <- indphe[indphe %in% indibd]
+	y0 <- data$pheno[,phenotype]
+	y <- numeric(length(indibd))
+	for (i in 1:length(y)) y[i] <- y0[row.names(data$pheno) == indibd[i]]
+	if (!is.null(fixed.effects)) {
+		X0 <- model.matrix(~data$pheno[,fixed.effects]) 
+		X <- matrix(0, length(indibd), ncol(X0))
+		for (i in 1:length(y)) X[i,] <- X0[row.names(data$pheno) == indibd[i],]
+	} else {
+		X <- matrix(1, length(y), 1)
+	}
 	
 	## estimate null model ...
 	
@@ -906,10 +924,10 @@ FIA.model <-
 		function(...)
 {
 	packageStartupMessage("MAPfastR: QTL mapping in outbred line crosses")
-	packageStartupMessage('Version 1.0-1 installed')
-	packageStartupMessage('Authors:    Nelson R.M., Nettelblad C., Crooks L., Pettersson M.E., Besnier F.')
-	packageStartupMessage('            Shen X., Alvarez Castro J.M., Ronnegard L., Ek W., Sheng Z.')
-	packageStartupMessage('            Kierczak M., Holmgren S., Carlborg O.')
+	packageStartupMessage('Version 1.0-2 installed')
+	packageStartupMessage('Authors:    Nelson R.M., Nettelblad C., Pettersson M.E., Shen X.,')
+	packageStartupMessage('            Crooks L., Besnier F., Alvarez Castro J.M., Ronnegard L.,')
+	packageStartupMessage('            Ek W., Sheng Z., Kierczak M., Holmgren S., Carlborg O.')
 	packageStartupMessage('Maintainer: MAPfastR Developers - mapfastr@googlegroups.com')
 	#options(warn = -1)
 }

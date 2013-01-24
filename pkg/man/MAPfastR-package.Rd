@@ -12,8 +12,8 @@ MAPfastR is a fast and comprehensive software package for analyzing QTL data fro
 \tabular{ll}{
 Package: \tab MAPfastR\cr
 Type: \tab Package\cr
-Version: \tab 1.0-2\cr
-Date: \tab 2012-11-01\cr
+Version: \tab 1.0-3\cr
+Date: \tab 2013-01-24\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 Depends: \tab hglm, noia, cnf2freq, cnf2freqibdtracer, sfsmisc, snow, snowfall\cr
