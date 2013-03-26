@@ -924,7 +924,7 @@ FIA.model <-
 		function(...)
 {
 	packageStartupMessage("MAPfastR: QTL mapping in outbred line crosses")
-	packageStartupMessage('Version 1.0-2 installed')
+	packageStartupMessage('Version 1.1-0 installed')
 	packageStartupMessage('Authors:    Nelson R.M., Nettelblad C., Pettersson M.E., Shen X.,')
 	packageStartupMessage('            Crooks L., Besnier F., Alvarez Castro J.M., Ronnegard L.,')
 	packageStartupMessage('            Ek W., Sheng Z., Kierczak M., Holmgren S., Carlborg O.')
