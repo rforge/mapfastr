@@ -1,11 +1,18 @@
 Package: MAPfastR
 Type: Package
 Title: QTL Mapping in Outbred Line Crosses
-Version: 1.1-0
-Date: 2013-03-26
+Version: 1.1-5
+Date: 2013-05-30
 Author: MAPfastR Development Team 
 Maintainer: MAPfastR Developers <mapfastr@googlegroups.com>
 Description: MAPfastR is a fast and comprehensive software package for analyzing QTL data from outbred line-crosses that is developed for flexible analyses of large datasets. It includes an online developer and community based support system. MAPfastR is designed to efficiently handle outbred line cross data and has been shown to make efficient use of all available data from dense SNP-chips while remaining computationally efficient (Crooks et al., 2011). MAPfastR provide functionality for both standard line-cross analyses assuming within-line QTL fixation (Crooks et al., 2011), line-cross analyses allowing for within-line segregation (FIA; Ronnegard et al., 2008) and tests for epistatic interactions (Carlborg and Andersson, 2002). In addition to the standard functionality, the software comes with additional add-on packages that allow more experienced users take advantage of modules for analyzes of deep (Advanced Intercross Line) pedigrees. MAPfastR is implemented in the R language (with optimization of the more computationally intensive algorithms in C++), accepts several standard input formats and is available for Windows, Linux and MacOS.
 License: GPL
 LazyLoad: yes
-Depends: hglm, noia, cnf2freq, cnf2freqibdtracer, sfsmisc, snow, snowfall
+Depends: R (>= 2.10), hglm, noia, cnf2freq, cnf2freqibdtracer, sfsmisc,
+        snow, snowfall
+Repository: R-Forge
+Repository/R-Forge/Project: mapfastr
+Repository/R-Forge/Revision: 18
+Repository/R-Forge/DateTimeStamp: 2013-03-27 08:22:17
+Date/Publication: 2013-03-27 08:22:17
+Packaged: 2013-03-27 11:16:15 UTC; rforge
