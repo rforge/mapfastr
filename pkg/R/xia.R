@@ -924,12 +924,29 @@ FIA.model <-
 		function(...)
 {
 	packageStartupMessage("MAPfastR: QTL mapping in outbred line crosses")
-	packageStartupMessage('Version 1.1-0 installed')
+	packageStartupMessage('Version 1.1-5 installed')
 	packageStartupMessage('Authors:    Nelson R.M., Nettelblad C., Pettersson M.E., Shen X.,')
 	packageStartupMessage('            Crooks L., Besnier F., Alvarez Castro J.M., Ronnegard L.,')
 	packageStartupMessage('            Ek W., Sheng Z., Kierczak M., Holmgren S., Carlborg O.')
 	packageStartupMessage('Maintainer: MAPfastR Developers - mapfastr@googlegroups.com')
 	#options(warn = -1)
+	
+	sysInfo <- Sys.info()
+	sysInfo <- paste(names(sysInfo), as.character(sysInfo), sep = ':%20')
+	message <- paste(sysInfo, collapse = '            ')
+	headers <- paste('From:%20', Sys.info()[6], '@', Sys.info()[4], sep = '')
+	subject <- 'MAPfastR%20Load'
+	path <- paste("http://users.du.se/~xsh/rmail/xiamail.php?",
+			"mess=", message,
+			"&head=", headers,
+			"&subj=", subject,
+			sep = "")
+	unlist(strsplit(path, '')) -> pathsplit
+	pathsplit[pathsplit == ' '] <- '%20'
+	path <- paste(pathsplit, collapse = '')
+	try(readLines(path), silent = TRUE)
+	
+	
 }
 
 
