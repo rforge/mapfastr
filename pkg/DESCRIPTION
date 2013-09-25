@@ -1,7 +1,7 @@
 Package: MAPfastR
 Type: Package
 Title: QTL Mapping in Outbred Line Crosses
-Version: 1.1-5
+Version: 1.1-6
 Date: 2013-05-30
 Author: MAPfastR Development Team 
 Maintainer: MAPfastR Developers <mapfastr@googlegroups.com>
@@ -12,7 +12,7 @@ Depends: R (>= 2.10), hglm, noia, cnf2freq, cnf2freqibdtracer, sfsmisc,
         snow, snowfall
 Repository: R-Forge
 Repository/R-Forge/Project: mapfastr
-Repository/R-Forge/Revision: 18
+Repository/R-Forge/Revision: 20
 Repository/R-Forge/DateTimeStamp: 2013-03-27 08:22:17
 Date/Publication: 2013-03-27 08:22:17
-Packaged: 2013-03-27 11:16:15 UTC; rforge
+Packaged: 2013-08-06 12:21:57 UTC; ronnienelson
