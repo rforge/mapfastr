@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\includepdf[pages={1-17}, fitpaper=true]{MAPfastR_130531.pdf}
+\includepdf[pages={1-17}, fitpaper=true]{MAPfastR_130805.pdf}
 
 \end{document}
 
