@@ -879,38 +879,40 @@ FIA.scan <-
 
 
 
-FIA.model <-
-		function(data = NULL, phenotype = NULL, fixed.effects = NULL, chr = 1, IBD.index = 1) {
-	
-	## load data ...
-	
-	y <- data$pheno[data$pheno$generation==3,phenotype]
-	if (sum(is.na(y)) > 0) {
-		naidx <- which(is.na(y))
-		y <- y[-naidx]
-	}
-	if (!is.null(fixed.effects)) X <- model.matrix(~data$pheno[data$pheno$generation==3,fixed.effects]) else X <- matrix(1, length(y), 1)
-	
-	require(hglm)
-	
-	filename1 <- paste('chr', chr, '/', IBD.index, '.ibd.RData', sep = '')
-	load(filename1)
-	if (sum(is.na(y)) > 0) meanPi <- meanPi[-naidx,-naidx]
-	IBD <- meanPi
-	filename2 <- paste('chr', chr, '/', IBD.index, '.ibd1.RData', sep = '')
-	load(filename2)
-	if (sum(is.na(y)) > 0) meanPi <- meanPi[-naidx,-naidx]
-	s <- svd(IBD)
-	L1 <- s$u %*% diag(sqrt(s$d))
-	s <- svd(meanPi - IBD)
-	L2 <- s$u %*% diag(sqrt(s$d))
-	
-	model <- hglm(X = X, y = y, Z = cbind(L1, L2), RandC = rep(length(y), 2), conv = 1e-6)
-	rho <- model$varRanef[2]/model$varRanef[1]
-	cat('Estimated within-line correlation: rho =', rho, '\n')
-	if (rho > 1) cat('Estimated rho =', rho, '> 1, so we conclude rho = 1.\n')
-	return(list(model = model, rho = rho))
-}
+FIA.model <- function (data = NULL, phenotype = NULL, fixed.effects = NULL, 
+    chr = 1, IBD.index = 1) 
+{
+y <- data$pheno[data$pheno$generation == 3, phenotype]
+    if (sum(is.na(y)) > 0) naidx <- which(is.na(y))
+    require(hglm)
+    filename1 <- paste("chr", chr, "/", IBD.index, ".ibd.RData", 
+        sep = "")
+    load(filename1)
+    if (sum(is.na(y)) > 0) 
+        meanPi <- meanPi[-naidx, -naidx]
+    IBD <- meanPi
+    filename2 <- paste("chr", chr, "/", IBD.index, ".ibd1.RData", 
+        sep = "")
+    load(filename2)
+    if (sum(is.na(y)) > 0) 
+        meanPi <- meanPi[-naidx, -naidx]
+    s <- svd(IBD)
+    L1 <- s$u %*% diag(sqrt(s$d))
+    s <- svd(meanPi - IBD)
+    L2 <- s$u %*% diag(sqrt(s$d))
+    y <- y[-naidx]
+    if (!is.null(fixed.effects)) 
+      	X <- model.matrix(~as.matrix(data$pheno[data$pheno$generation == 
+            	3, fixed.effects]))[-naidx,]
+    else X <- matrix(1, length(y), 1)
+    model <- hglm(X = X, y = y, Z = cbind(L1, L2), RandC = rep(length(y), 
+        2), conv = 1e-06)
+    rho <- model$varRanef[2]/model$varRanef[1]
+     cat("Estimated within-line correlation: rho =", rho, "\n")
+    if (rho > 1) 
+        cat("Estimated rho =", rho, "> 1, so we conclude rho = 1.\n")
+    return(list(model = model, rho = rho))
+    }
 
 
 
