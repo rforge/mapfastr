@@ -925,30 +925,31 @@ y <- data$pheno[data$pheno$generation == 3, phenotype]
 .onAttach <- 
 		function(...)
 {
-	packageStartupMessage("MAPfastR: QTL mapping in outbred line crosses")
-	packageStartupMessage('Version 1.1-7 installed')
-	packageStartupMessage('Authors:    Nelson R.M., Nettelblad C., Pettersson M.E., Shen X.,')
-	packageStartupMessage('            Crooks L., Besnier F., Alvarez Castro J.M., Ronnegard L.,')
-	packageStartupMessage('            Ek W., Sheng Z., Kierczak M., Holmgren S., Carlborg O.')
-	packageStartupMessage('Maintainer: MAPfastR Developers - mapfastr@googlegroups.com')
+	packageStartupMessage("WARNING: The R-Forge version of this package is not maintained anymore! Please refer to www.computationalgenetics.se for a proper version.")
+	
+	#packageStartupMessage("MAPfastR: QTL mapping in outbred line crosses")
+	#packageStartupMessage('Version 1.1-7 installed')
+	#packageStartupMessage('Authors:    Nelson R.M., Nettelblad C., Pettersson M.E., Shen X.,')
+	#packageStartupMessage('            Crooks L., Besnier F., Alvarez Castro J.M., Ronnegard L.,')
+	#packageStartupMessage('            Ek W., Sheng Z., Kierczak M., Holmgren S., Carlborg O.')
+	#packageStartupMessage('Maintainer: MAPfastR Developers - mapfastr@googlegroups.com')
 	#options(warn = -1)
 	
-	sysInfo <- Sys.info()
-	sysInfo <- paste(names(sysInfo), as.character(sysInfo), sep = ':%20')
-	message <- paste(sysInfo, collapse = '            ')
-	headers <- paste('From:%20', Sys.info()[6], '@', Sys.info()[4], sep = '')
-	subject <- 'MAPfastR%20Load'
-	path <- paste("http://users.du.se/~xsh/rmail/xiamail.php?",
-			"mess=", message,
-			"&head=", headers,
-			"&subj=", subject,
-			sep = "")
-	unlist(strsplit(path, '')) -> pathsplit
-	pathsplit[pathsplit == ' '] <- '%20'
-	path <- paste(pathsplit, collapse = '')
-	try(readLines(path), silent = TRUE)
-	
-	
+	#sysInfo <- Sys.info()
+	#sysInfo <- paste(names(sysInfo), as.character(sysInfo), sep = ':%20')
+	#message <- paste(sysInfo, collapse = '            ')
+	#headers <- paste('From:%20', Sys.info()[6], '@', Sys.info()[4], sep = '')
+	#subject <- 'MAPfastR%20Load'
+	#path <- paste("http://users.du.se/~xsh/rmail/xiamail.php?",
+	#		"mess=", message,
+	#		"&head=", headers,
+	#		"&subj=", subject,
+	#		sep = "")
+	#unlist(strsplit(path, '')) -> pathsplit
+	#pathsplit[pathsplit == ' '] <- '%20'
+	#path <- paste(pathsplit, collapse = '')
+	#try(readLines(path), silent = TRUE)
 }
 
+# MAPfastR is a fast and comprehensive software package for analyzing QTL data from outbred line-crosses that is developed for flexible analyses of large datasets. It includes an online developer and community based support system. MAPfastR is designed to efficiently handle outbred line cross data and has been shown to make efficient use of all available data from dense SNP-chips while remaining computationally efficient (Crooks et al., 2011). MAPfastR provide functionality for both standard line-cross analyses assuming within-line QTL fixation (Crooks et al., 2011), line-cross analyses allowing for within-line segregation (FIA; Ronnegard et al., 2008) and tests for epistatic interactions (Carlborg and Andersson, 2002). In addition to the standard functionality, the software comes with additional add-on packages that allow more experienced users take advantage of modules for analyzes of deep (Advanced Intercross Line) pedigrees. MAPfastR is implemented in the R language (with optimization of the more computationally intensive algorithms in C++), accepts several standard input formats and is available for Windows, Linux and MacOS.
 
